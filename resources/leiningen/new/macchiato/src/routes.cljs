@@ -1,30 +1,29 @@
 (ns {{project-ns}}.routes
   (:require
     [bidi.bidi :as bidi]
-    [hiccups.runtime])
+    [hiccups.runtime]
+    [macchiato.response :as r])
   (:require-macros
     [hiccups.core :refer [html]]))
 
 (defn home [req res]
-  (res
-    {:headers {}
-     :status  200
-     :body    (html
-                [:html
-                 [:body
-                  [:h2 "Hello World!"]
-                  [:p
-                   "Your user-agent is: "
-                   (str (-> req :headers :user-agent))]]])}))
+  (-> (html
+        [:html
+         [:body
+          [:h2 "Hello World!"]
+          [:p
+           "Your user-agent is: "
+           (str (-> req :headers :user-agent))]]])
+      (r/ok)
+      (res)))
 
 (defn not-found [req res]
-  (res
-    {:headers {}
-     :status  404
-     :body    (html
-                [:html
-                 [:body
-                  [:h2 (:uri req) " was not found"]]])}))
+  (-> (html
+        [:html
+         [:body
+          [:h2 (:uri req) " was not found"]]])
+      (r/not-found)
+      (res)))
 
 (def routes
   ["/"

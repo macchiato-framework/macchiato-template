@@ -4,6 +4,7 @@
   :dependencies [[bidi "2.0.14"]
                  [hiccups "0.3.0"]
                  [macchiato/http "0.0.4"]
+                 [macchiato/response "0.0.1"]
                  [mount "0.1.10"]
                  [com.cemerick/piggieback "0.2.1"]
                  [org.clojure/clojure "1.8.0"]

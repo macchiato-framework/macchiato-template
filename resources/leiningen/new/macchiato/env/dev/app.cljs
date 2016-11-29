@@ -8,4 +8,6 @@
 
 (cljs.nodejs/enable-util-print!)
 
+(.on js/process "uncaughtException" #(js/console.error %))
+
 (set! *main-cli-fn* core/app)

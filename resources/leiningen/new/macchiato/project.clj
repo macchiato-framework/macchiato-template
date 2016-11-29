@@ -31,6 +31,7 @@
                               :output-dir    "target/out"
                               :target        :nodejs
                               :optimizations :none
+                              :pretty-print  true
                               :source-map    true}}}}
     :figwheel
     {:http-server-root "public"
@@ -54,7 +55,7 @@
             ["clean"]
             ["npm" "install"]
             ["figwheel" "dev"]]
-   "release" ["do"
+   "package" ["do"
               ["clean"]
               ["npm" "install"]
               ["npm" "init" "-y"]

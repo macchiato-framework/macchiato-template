@@ -27,7 +27,7 @@ Type `(cljs)` in the REPL to connect to Figwheel ClojureSrcipt REPL.
 ### building the release version
 
 ```
-lein release
+lein package
 ```
 
 Run the release version:

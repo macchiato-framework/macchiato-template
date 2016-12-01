@@ -2,7 +2,7 @@
   (:require
     [{{project-ns}}.routes :refer [router]]
     [macchiato.http :refer [handler]]
-    [macchiato.session.middleware :refer [wrap-session]]
+    [macchiato.session.memory :as mem]
     [mount.core :as mount :refer [defstate]]
     [taoensso.timbre :refer-macros [log trace debug info warn error fatal]]))
 
@@ -14,9 +14,10 @@
     (mount/start)
     (-> @http
         (.createServer
-          (-> router
-              (wrap-session)
-              (handler {:cookies {:signed? true}})))
+          (handler
+            router
+            {:cookies {:signed? true}
+             :session {:store (mem/memory-store)}}))
         (.listen port host #(info "{{name}} started on" host ":" port)))))
 
 (defn start-workers [os cluster]

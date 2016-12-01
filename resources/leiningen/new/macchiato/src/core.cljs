@@ -1,17 +1,19 @@
 (ns {{project-ns}}.core
   (:require
     [{{project-ns}}.routes :refer [router]]
+    [macchiato.env :as config]
     [macchiato.http :refer [handler]]
     [macchiato.session.middleware :refer [wrap-session]]
     [mount.core :as mount :refer [defstate]]
     [taoensso.timbre :refer-macros [log trace debug info warn error fatal]]))
 
+(defstate env :start (config/env))
 (defstate http :start (js/require "http"))
 
 (defn app []
-  (let [host (or (.-HOST (.-env js/process)) "127.0.0.1")
-        port (or (.-PORT (.-env js/process)) 3000)]
-    (mount/start)
+  (mount/start)
+  (let [host (or (:host env) "127.0.0.1")
+        port (or (:port env) 3000)]
     (-> @http
         (.createServer
           (-> router

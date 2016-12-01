@@ -3,6 +3,7 @@
   :url "http://example.com/FIXME"
   :dependencies [[bidi "2.0.14"]
                  [hiccups "0.3.0"]
+                 [macchiato/env "0.0.2"]
                  [macchiato/http "0.0.6"]
                  [macchiato/session "0.0.1"]
                  [macchiato/response "0.0.1"]

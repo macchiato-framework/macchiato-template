@@ -14,7 +14,7 @@
 (defn app []
   (mount/start)
   (let [host (or (:host env) "127.0.0.1")
-        port (or (js/parseInt (:port env)) 3000)]
+        port (or (some-> env :port js/parseInt) 3000)]
     (-> @http
         (.createServer
           (handler

@@ -16,7 +16,7 @@
         (.createServer
           (-> router
               (wrap-session)
-              (handler {:cookies {:signed? false}})))
+              (handler {:cookies {:signed? true}})))
         (.listen port host #(info "{{name}} started on" host ":" port)))))
 
 (defn start-workers [os cluster]

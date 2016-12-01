@@ -1,4 +1,4 @@
-(defproject macchiato/lein-template "0.0.9"
+(defproject macchiato/lein-template "0.1.1"
   :description "A Leiningen template for creating express.js based ClojureScript apps."
   :url "https://github.com/macchiato-framework/macchiato-template"
   :license {:name "MIT License"

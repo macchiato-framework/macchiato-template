@@ -8,12 +8,13 @@
     [taoensso.timbre :refer-macros [log trace debug info warn error fatal]]))
 
 (defstate env :start (config/env))
+
 (defstate http :start (js/require "http"))
 
 (defn app []
   (mount/start)
   (let [host (or (:host env) "127.0.0.1")
-        port (or (:port env) 3000)]
+        port (or (js/parseInt (:port env)) 3000)]
     (-> @http
         (.createServer
           (handler

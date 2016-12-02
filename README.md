@@ -1,6 +1,6 @@
 # macchiato-template
 
-A [Leiningen](http://leiningen.org/) template for projects using [Express.js](https://expressjs.com).
+A [Leiningen](http://leiningen.org/) template for creating ClojureScript applications on top of [Node.js](https://nodejs.org/).
 
 ## Usage
 

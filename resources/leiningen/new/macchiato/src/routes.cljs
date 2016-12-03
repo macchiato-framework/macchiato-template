@@ -6,7 +6,7 @@
   (:require-macros
     [hiccups.core :refer [html]]))
 
-(defn home [req res]
+(defn home [req res raise]
   (-> (html
         [:html
          [:body
@@ -17,7 +17,7 @@
       (r/ok)
       (res)))
 
-(defn not-found [req res]
+(defn not-found [req res raise]
   (-> (html
         [:html
          [:body
@@ -30,6 +30,6 @@
    [["" home]
     [true not-found]]])
 
-(defn router [req res]
+(defn router [req res raise]
   (let [route (->> req :uri (bidi/match-route routes) :handler)]
-    (route req res)))
+    (route req res raise)))

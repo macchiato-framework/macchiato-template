@@ -2,17 +2,13 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[bidi "2.0.14"]
+                 [com.taoensso/timbre "4.7.4"]
                  [hiccups "0.3.0"]
+                 [macchiato/core "0.0.1"]
                  [macchiato/env "0.0.3"]
-                 [macchiato/http "0.0.9"]
-                 [macchiato/session "0.0.2"]
-                 [macchiato/response "0.0.1"]
                  [mount "0.1.10"]
-                 [com.cemerick/piggieback "0.2.1"]
                  [org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.293"]
-                 [org.clojure/data.json "0.2.6" :classifier "aot"]
-                 [com.taoensso/timbre "4.7.4"]]
+                 [org.clojure/clojurescript "1.9.293"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-npm "0.6.2"]
             [lein-figwheel "0.5.8"]
@@ -41,6 +37,7 @@
      :nrepl-port 7000
      :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
 
+    :dependencies [[com.cemerick/piggieback "0.2.1"]]
     :source-paths ["env/dev"]
     :repl-options {:init-ns user}}
    :release
@@ -62,4 +59,4 @@
               ["clean"]
               ["npm" "install"]
               ["npm" "init" "-y"]
-              ["with-profile" "release" "cljsbuild" "once" "release"]]})
+              ["with-profile" "release" "cljsbuild" "once"]]})

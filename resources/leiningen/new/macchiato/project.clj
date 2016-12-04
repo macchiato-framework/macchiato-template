@@ -4,7 +4,7 @@
   :dependencies [[bidi "2.0.14"]
                  [com.taoensso/timbre "4.7.4"]
                  [hiccups "0.3.0"]
-                 [macchiato/core "0.0.1"]
+                 [macchiato/core "0.0.2"]
                  [macchiato/env "0.0.3"]
                  [mount "0.1.10"]
                  [org.clojure/clojure "1.8.0"]

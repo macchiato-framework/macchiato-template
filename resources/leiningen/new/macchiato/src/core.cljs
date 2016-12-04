@@ -1,5 +1,6 @@
 (ns {{project-ns}}.core
   (:require
+    [{{project-ns}}.middleware :refer [wrap-defaults]]
     [{{project-ns}}.routes :refer [router]]
     [macchiato.env :as config]
     [macchiato.http :refer [handler]]
@@ -18,7 +19,7 @@
     (-> @http
         (.createServer
           (handler
-            router
+            (wrap-defaults router)
             {:cookies {:signed? true}
              :session {:store (mem/memory-store)}}))
         (.listen port host #(info "{{name}} started on" host ":" port)))))

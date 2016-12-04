@@ -10,7 +10,8 @@
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.293"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
-  :plugins [[lein-npm "0.6.2"]
+  :plugins [[lein-doo "0.1.7"]
+            [lein-npm "0.6.2"]
             [lein-figwheel "0.5.8"]
             [lein-cljsbuild "1.1.4"]
   [org.clojure/clojurescript "1.9.293"]]
@@ -23,7 +24,7 @@
   {:dev
    {:cljsbuild
     {:builds {:dev
-              {:source-paths ["src" "env/dev"]
+              {:source-paths ["env/dev" "src"]
                :figwheel     true
                :compiler     {:main          {{project-ns}}.app
                               :output-to     "target/out/{{name}}.js"
@@ -40,11 +41,23 @@
     :dependencies [[com.cemerick/piggieback "0.2.1"]]
     :source-paths ["env/dev"]
     :repl-options {:init-ns user}}
+   :test
+   {:cljsbuild
+    {:builds
+     {:test
+      {:source-paths ["env/test" "src" "test"]
+       :compiler     {:main {{project-ns}}.app
+                            :output-to     "target/test/{{name}}.js"
+                            :target        :nodejs
+                            :optimizations :none
+                            :source-map    true
+                            :pretty-print  true}}}}
+    :doo {:build "test"}}
    :release
    {:cljsbuild
     {:builds
      {:release
-      {:source-paths ["src" "env/prod"]
+      {:source-paths ["env/prod" "src"]
        :compiler     {:main          {{project-ns}}.app
                       :output-to     "target/release/{{name}}.js"
                       :target        :nodejs
@@ -59,4 +72,7 @@
               ["clean"]
               ["npm" "install"]
               ["npm" "init" "-y"]
-              ["with-profile" "release" "cljsbuild" "once"]]})
+              ["with-profile" "release" "cljsbuild" "once"]]
+   "test" ["do"
+           ["npm" "install"]
+           ["with-profile" "test" "doo" "node"]]})

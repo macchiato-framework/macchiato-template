@@ -27,6 +27,9 @@
      ["src/{{sanitized}}/core.cljs" (render "src/core.cljs" data)]
      ["src/{{sanitized}}/middleware.cljs" (render "src/middleware.cljs" data)]
      ["src/{{sanitized}}/routes.cljs" (render "src/routes.cljs" data)]
+     ;;tests
+     ["env/test/{{sanitized}}/app.cljs" (render "env/test/app.cljs" data)]
+     ["test/{{sanitized}}/core_test.cljs" (render "test/core_test.cljs" data)]
      ;; static assets
      ["static/index.html" (render "static/index.html" data)]
      ["static/css/site.css" (render "static/css/site.css" data)]

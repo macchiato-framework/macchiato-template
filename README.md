@@ -2,6 +2,8 @@
 
 A [Leiningen](http://leiningen.org/) template for creating ClojureScript applications on top of [Node.js](https://nodejs.org/).
 
+This template creates a skeleton Macchiato based project with a test harness.
+
 ## Usage
 
 Create a new application project:

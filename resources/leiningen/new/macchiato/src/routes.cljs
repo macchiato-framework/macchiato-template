@@ -13,7 +13,7 @@
           [:h2 "Hello World!"]
           [:p
            "Your user-agent is: "
-           (str (-> req :headers :user-agent))]]])
+           (str (get-in req [:headers "user-agent"]))]]])
       (r/ok)
       (r/content-type "text/html")
       (res)))

@@ -1,14 +1,12 @@
 (ns {{project-ns}}.core
   (:require
+    [{{project-ns}}.config :refer [env]]
     [{{project-ns}}.middleware :refer [wrap-defaults]]
     [{{project-ns}}.routes :refer [router]]
-    [macchiato.env :as config]
     [macchiato.server :as http]
     [macchiato.session.memory :as mem]
     [mount.core :as mount :refer [defstate]]
     [taoensso.timbre :refer-macros [log trace debug info warn error fatal]]))
-
-(defstate env :start (config/env))
 
 (defn app []
   (mount/start)

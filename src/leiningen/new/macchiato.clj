@@ -24,6 +24,7 @@
      ["env/dev/user.clj" (render "env/dev/user.clj" data)]
      ["env/dev/{{sanitized}}/app.cljs" (render "env/dev/app.cljs" data)]
      ["env/prod/{{sanitized}}/app.cljs" (render "env/prod/app.cljs" data)]
+     ["src/{{sanitized}}/config.cljs" (render "src/config.cljs" data)]
      ["src/{{sanitized}}/core.cljs" (render "src/core.cljs" data)]
      ["src/{{sanitized}}/middleware.cljs" (render "src/middleware.cljs" data)]
      ["src/{{sanitized}}/routes.cljs" (render "src/routes.cljs" data)]

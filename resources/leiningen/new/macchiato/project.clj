@@ -4,8 +4,8 @@
   :dependencies [[bidi "2.0.14"]
                  [com.taoensso/timbre "4.7.4"]
                  [hiccups "0.3.0"]
-                 [macchiato/core "0.0.6"]
-                 [macchiato/defaults "0.0.1"]
+                 [macchiato/core "0.0.7"]
+                 [macchiato/defaults "0.0.2"]
                  [macchiato/env "0.0.3"]
                  [mount "0.1.10"]
                  [org.clojure/clojure "1.8.0"]
@@ -16,8 +16,7 @@
             [lein-figwheel "0.5.8"]
             [lein-cljsbuild "1.1.4"]
   [org.clojure/clojurescript "1.9.293"]]
-  :npm {:dependencies [[source-map-support "0.4.6"]
-                       [ws "1.1.1"]]}
+  :npm {:dependencies [[source-map-support "0.4.6"]]}
   :source-paths ["src" "target/classes"]
   :clean-targets ["target"]
   :target-path "target"

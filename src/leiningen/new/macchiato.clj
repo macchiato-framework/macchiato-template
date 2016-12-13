@@ -32,8 +32,8 @@
      ["env/test/{{sanitized}}/app.cljs" (render "env/test/app.cljs" data)]
      ["test/{{sanitized}}/core_test.cljs" (render "test/core_test.cljs" data)]
      ;; static assets
-     ["static/index.html" (render "static/index.html" data)]
-     ["static/css/site.css" (render "static/css/site.css" data)]
+     ["public/index.html" (render "public/index.html" data)]
+     ["public/css/site.css" (render "public/css/site.css" data)]
      ;; Heroku support
      ["system.properties" (render "system.properties" data)]
      ["Procfile" (render "Procfile" data)]]))

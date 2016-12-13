@@ -36,6 +36,7 @@
     :figwheel
     {:http-server-root "public"
      :nrepl-port 7000
+     :reload-clj-files {:clj false :cljc true}
      :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
 
     :dependencies [[com.cemerick/piggieback "0.2.1"]]

@@ -28,10 +28,8 @@
       (res)))
 
 (def routes
-  ["/"
-   [["" home]
-    [true not-found]]])
+  ["/" {:get home}])
 
 (defn router [req res raise]
-  (let [route (->> req :uri (bidi/match-route routes) :handler)]
-    (route req res raise)))
+  ((:handler (bidi/match-route* routes (:uri req) req) not-found)
+    req res raise))

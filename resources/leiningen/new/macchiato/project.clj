@@ -1,7 +1,7 @@
 (defproject {{full-name}} "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
-  :dependencies [[bidi "2.0.14"]
+  :dependencies [[bidi "2.0.15"]
                  [com.taoensso/timbre "4.7.4"]
                  [hiccups "0.3.0"]
                  [macchiato/core "0.1.2"]

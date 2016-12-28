@@ -6,7 +6,7 @@
                  [hiccups "0.3.0"]
                  [macchiato/core "0.1.2"]
                  [macchiato/env "0.0.3"]
-                 [mount "0.1.10"]
+                 [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.293"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]

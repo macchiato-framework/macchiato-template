@@ -31,5 +31,6 @@
   ["/" {:get home}])
 
 (defn router [req res raise]
-  ((:handler (bidi/match-route* routes (:uri req) req) not-found)
-    req res raise))
+  (if-let [{:keys [handler route-params]} (bidi/match-route* routes (:uri req) req)]
+    (handler (assoc req :route-params route-params) res raise)
+    (not-found req res raise)))

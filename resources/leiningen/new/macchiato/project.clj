@@ -5,7 +5,7 @@
                  [com.taoensso/timbre "4.8.0"]
                  [hiccups "0.3.0"]
                  [macchiato/core "0.1.2"]
-                 [macchiato/env "0.0.4"]
+                 [macchiato/env "0.0.5"]
                  [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.293"]]

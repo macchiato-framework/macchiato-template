@@ -2,6 +2,7 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[bidi "2.0.16"]
+                 [com.cemerick/piggieback "0.2.1"]
                  [com.taoensso/timbre "4.8.0"]
                  [hiccups "0.3.0"]
                  [macchiato/core "0.1.2"]
@@ -31,14 +32,13 @@
                               :target        :nodejs
                               :optimizations :none
                               :pretty-print  true
-                              :source-map    true}}}}
+                              :source-map    true
+                              :source-map-timestamp false}}}}
     :figwheel
     {:http-server-root "public"
      :nrepl-port 7000
      :reload-clj-files {:clj false :cljc true}
      :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-
-    :dependencies [[com.cemerick/piggieback "0.2.1"]]
     :source-paths ["env/dev"]
     :repl-options {:init-ns user}}
    :test

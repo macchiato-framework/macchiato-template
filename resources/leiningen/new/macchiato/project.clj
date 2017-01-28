@@ -9,14 +9,14 @@
                  [macchiato/env "0.0.5"]
                  [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.293"]]
+                 [org.clojure/clojurescript "1.9.456"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
-            [lein-npm "0.6.2"]
+            [macchiato/lein-npm "0.6.2"]
             [lein-figwheel "0.5.8"]
-            [lein-cljsbuild "1.1.4"]
-  [org.clojure/clojurescript "1.9.293"]]
-  :npm {:dependencies [[source-map-support "0.4.6"]]}
+            [lein-cljsbuild "1.1.4"]]
+  :npm {:dependencies [[source-map-support "0.4.6"]]
+        :write-package-json true}
   :source-paths ["src" "target/classes"]
   :clean-targets ["target"]
   :target-path "target"

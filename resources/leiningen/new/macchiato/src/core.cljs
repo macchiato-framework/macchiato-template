@@ -18,16 +18,18 @@
        :port       port
        :on-success #(info "{{name}} started on" host ":" port)})))
 
-(defn start-workers [os cluster]
+(defn start-workers [cluster]
   (let [os (js/require "os")]
-    (dotimes [_ (-> os .cpus .-length)]
+    (dotimes [_ (get-in @env [:cluster :procs] (-> os .cpus .-length))]
       (.fork cluster))
     (.on cluster "exit"
       (fn [worker code signal]
         (info "worker terminated" (-> worker .-process .-pid))))))
 
 (defn main [& args]
-  (let [cluster (js/require "cluster")]
-    (if (.-isMaster cluster)
-      (start-workers os cluster)
-      (app))))
+  (if (:cluster @env)
+    (let [cluster (js/require "cluster")]
+      (if (.-isMaster cluster)
+        (start-workers cluster)
+        (app)))
+    (app)))

@@ -13,7 +13,7 @@
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
             [macchiato/lein-npm "0.6.2"]
-            [lein-figwheel "0.5.8"]
+            [lein-figwheel "0.5.9"]
             [lein-cljsbuild "1.1.4"]]
   :npm {:dependencies [[source-map-support "0.4.6"]]
         :write-package-json true}

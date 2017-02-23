@@ -9,6 +9,7 @@
 (defn home [req res raise]
   (-> (html
         [:html
+         [:head [:link {:rel "stylesheet" :href "/css/site.css"}]]
          [:body
           [:h2 "Hello World!"]
           [:p

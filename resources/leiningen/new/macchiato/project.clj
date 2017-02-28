@@ -22,7 +22,9 @@
   :target-path "target"
   :profiles
   {:dev
-   {:cljsbuild
+   {:npm {:package {:main "target/out/{{name}}.js"
+                    :scripts {:start "node target/out/{{name}}.js"}}}
+    :cljsbuild
     {:builds {:dev
               {:source-paths ["env/dev" "src"]
                :figwheel     true
@@ -54,7 +56,9 @@
                       :source-map    true}}}}
     :doo {:build "test"}}
    :release
-   {:cljsbuild
+   {:npm {:package {:main "target/release/{{name}}.js"
+                    :scripts {:start "node target/release/{{name}}.js"}}}
+    :cljsbuild
     {:builds
      {:release
       {:source-paths ["env/prod" "src"]

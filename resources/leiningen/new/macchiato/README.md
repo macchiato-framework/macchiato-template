@@ -15,7 +15,7 @@ lein build
 run `node` in another terminal:
 
 ```
-node target/out/{{name}}.js
+npm start
 ```
 
 #### configuring the REPL
@@ -34,5 +34,5 @@ lein package
 Run the release version:
 
 ```
-node target/release/{{name}}.js
+npm start
 ```

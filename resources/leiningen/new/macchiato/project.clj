@@ -75,7 +75,7 @@
    "package" ["do"
               ["clean"]
               ["npm" "install"]
-              ["npm" "init" "-y"]
+              ["with-profile" "release" "npm" "init" "-y"]
               ["with-profile" "release" "cljsbuild" "once"]]
    "test" ["do"
            ["npm" "install"]

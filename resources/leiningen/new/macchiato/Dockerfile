@@ -1,5 +1,7 @@
 FROM node:latest
 
+MAINTAINER Your Name <you@example.com>
+
 # Create app directory
 RUN mkdir -p /usr/src/{{name}}
 WORKDIR /usr/src/{{name}}

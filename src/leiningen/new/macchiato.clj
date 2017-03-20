@@ -45,12 +45,12 @@
     "\n"
     ["\nQuick Start"
      "-----------\n"
-     "run  the compiler:"
+     "run the compiler:"
      (str "  cd " name)
      "  lein build\n"
-     "run node in another terminal:"
+     "run Node.js in another terminal:"
      (str "  cd " name)
-     (str "  node target/out/" name ".js\n")
+     "  npm start\n"
      "see README.md for further instructions"]))
 
 (defn macchiato [name]

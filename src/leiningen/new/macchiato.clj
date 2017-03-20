@@ -19,6 +19,8 @@
      ["LICENSE" (render "LICENSE" data)]
      ["README.md" (render "README.md" data)]
      [".gitignore" (render "gitignore" data)]
+     [".dockerignore" (render "dockerignore" data)]
+     ["Dockerfile" (render "Dockerfile" data)]
      ["project.clj" (render "project.clj" data)]
      ;; sources
      ["env/dev/user.clj" (render "env/dev/user.clj" data)]

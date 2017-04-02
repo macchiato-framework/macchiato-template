@@ -1,4 +1,4 @@
-FROM node:latest
+FROM mhart/alpine-node:latest
 
 MAINTAINER Your Name <you@example.com>
 

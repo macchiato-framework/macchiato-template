@@ -64,6 +64,7 @@
       {:source-paths ["env/prod" "src"]
        :compiler     {:main          {{project-ns}}.app
                       :output-to     "target/release/{{name}}.js"
+                      :language-in   :ecmascript5
                       :target        :nodejs
                       :optimizations :simple
                       :pretty-print  false}}}}}}

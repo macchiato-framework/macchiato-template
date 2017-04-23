@@ -3,19 +3,19 @@ FROM mhart/alpine-node:latest
 MAINTAINER Your Name <you@example.com>
 
 # Create app directory
-RUN mkdir -p /usr/src/{{name}}
-WORKDIR /usr/src/{{name}}
+RUN mkdir -p /{{name}}
+WORKDIR /{{name}}
 
 # Install app dependencies
-COPY package.json /usr/src/{{name}}
+COPY package.json /{{name}}
 RUN npm install pm2 -g
 RUN npm install
 
 # Bundle app source
-COPY target/release/{{name}}.js /usr/src/{{name}}
-COPY public /usr/src/{{name}}/public
+COPY target/release/{{name}}.js /{{name}}/{{name}}.js
+COPY public /{{name}}/public
 
 ENV HOST 0.0.0.0
 
 EXPOSE 3000
-CMD [ "pm2-docker", "/usr/src/{{name}}/{{name}}.js" ]
+CMD [ "pm2-docker", "/{{name}}/{{name}}.js" ]

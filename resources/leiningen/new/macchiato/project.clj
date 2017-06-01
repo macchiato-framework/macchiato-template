@@ -1,7 +1,7 @@
 (defproject {{full-name}} "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
-  :dependencies [[bidi "2.0.16"]
+  :dependencies [[bidi "2.1.1"]
                  [com.cemerick/piggieback "0.2.1"]
                  [com.taoensso/timbre "4.10.0"]
                  [hiccups "0.3.0"]
@@ -9,7 +9,7 @@
                  [macchiato/env "0.0.6"]
                  [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.542"]]
+                 [org.clojure/clojurescript "1.9.562"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
             [macchiato/lein-npm "0.6.3"]

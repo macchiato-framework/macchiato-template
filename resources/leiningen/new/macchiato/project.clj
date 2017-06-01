@@ -24,6 +24,7 @@
   {:dev
    {:npm {:package {:main "target/out/{{name}}.js"
                     :scripts {:start "node target/out/{{name}}.js"}}}
+    :dependencies [[figwheel-sidecar "0.5.10"]]
     :cljsbuild
     {:builds {:dev
               {:source-paths ["env/dev" "src"]

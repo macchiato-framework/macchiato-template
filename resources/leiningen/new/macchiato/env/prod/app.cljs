@@ -8,4 +8,4 @@
 
 (cljs.nodejs/enable-util-print!)
 
-(set! *main-cli-fn* core/main)
+(set! *main-cli-fn* core/server)

@@ -2,18 +2,18 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[bidi "2.1.1"]
-                 [com.cemerick/piggieback "0.2.1"]
+                 [com.cemerick/piggieback "0.2.2"]
                  [com.taoensso/timbre "4.10.0"]
                  [hiccups "0.3.0"]
-                 [macchiato/core "0.1.8"]
+                 [macchiato/core "0.1.9"]
                  [macchiato/env "0.0.6"]
                  [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.562"]]
+                 [org.clojure/clojurescript "1.9.671"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
             [macchiato/lein-npm "0.6.3"]
-            [lein-figwheel "0.5.10"]
+            [lein-figwheel "0.5.11"]
             [lein-cljsbuild "1.1.5"]]
   :npm {:dependencies [[source-map-support "0.4.6"]]
         :write-package-json true}
@@ -24,7 +24,7 @@
   {:dev
    {:npm {:package {:main "target/out/{{name}}.js"
                     :scripts {:start "node target/out/{{name}}.js"}}}
-    :dependencies [[figwheel-sidecar "0.5.10"]]
+    :dependencies [[figwheel-sidecar "0.5.11"]]
     :cljsbuild
     {:builds {:dev
               {:source-paths ["env/dev" "src"]

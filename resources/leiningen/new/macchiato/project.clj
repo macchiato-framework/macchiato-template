@@ -1,11 +1,11 @@
 (defproject {{full-name}} "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
-  :dependencies [[bidi "2.1.1"]
+  :dependencies [[bidi "2.1.2"]
                  [com.cemerick/piggieback "0.2.2"]
                  [com.taoensso/timbre "4.10.0"]
                  [hiccups "0.3.0"]
-                 [macchiato/core "0.2.1"]
+                 [macchiato/core "0.2.2"]
                  [macchiato/env "0.0.6"]
                  [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]

@@ -4,7 +4,7 @@
   :dependencies [[bidi "2.1.2"]
                  [com.cemerick/piggieback "0.2.2"]
                  [com.taoensso/timbre "4.10.0"]
-                 [hiccups "0.3.0"]
+                 [macchiato/hiccups "0.4.0"]
                  [macchiato/core "0.2.2"]
                  [macchiato/env "0.0.6"]
                  [mount "0.1.11"]

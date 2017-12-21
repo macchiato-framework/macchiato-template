@@ -8,13 +8,13 @@
                  [macchiato/core "0.2.2"]
                  [macchiato/env "0.0.6"]
                  [mount "0.1.11"]
-                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]]
   :min-lein-version "2.0.0"
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
             [macchiato/lein-npm "0.6.3"]
-            [lein-figwheel "0.5.13"]
+            [lein-figwheel "0.5.14"]
             [lein-cljsbuild "1.1.5"]]
   :npm {:dependencies [[source-map-support "0.4.6"]]
         :write-package-json true}
@@ -25,7 +25,7 @@
   {:dev
    {:npm {:package {:main "target/out/{{name}}.js"
                     :scripts {:start "node target/out/{{name}}.js"}}}
-    :dependencies [[figwheel-sidecar "0.5.13"]]
+    :dependencies [[figwheel-sidecar "0.5.14"]]
     :cljsbuild
     {:builds {:dev
               {:source-paths ["env/dev" "src"]

@@ -15,7 +15,7 @@
   :min-lein-version "2.0.0"
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
-            [macchiato/lein-npm "0.6.3"]
+            [macchiato/lein-npm "0.6.4"]
             [lein-figwheel "0.5.14"]
             [lein-cljsbuild "1.1.5"]]
   :npm {:dependencies [[source-map-support "0.4.6"]]

@@ -43,7 +43,7 @@
     :figwheel
     {:http-server-root "public"
      :nrepl-port 7000
-     :reload-clj-files {:clj false :cljc true}
+     :reload-clj-files {:clj true :cljc true}
      :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
     :source-paths ["env/dev"]
     :repl-options {:init-ns user}}

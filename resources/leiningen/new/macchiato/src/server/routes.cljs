@@ -9,7 +9,12 @@
 (defn home [req res raise]
   (-> (html
         [:html
-         [:head [:link {:rel "stylesheet" :href "/css/site.css"}]]
+         [:head
+          [:link {:rel "stylesheet" :href "/css/site.css"}]
+{{#browser}}
+          [:script {:src "js/compiled/app.js"}]
+{{/browser}}
+          ]
          [:body
           [:h2 "Hello World!"]
           [:p

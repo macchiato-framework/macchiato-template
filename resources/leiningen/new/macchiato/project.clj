@@ -21,37 +21,57 @@
   :npm {:dependencies [[source-map-support "0.4.6"]]
         :write-package-json true}
   :source-paths ["src" "target/classes"]
-  :clean-targets ["target"]
   :target-path "target"
   :profiles
-  {:dev
-   {:npm {:package {:main "target/out/{{name}}.js"
-                    :scripts {:start "node target/out/{{name}}.js"}}}
-    :dependencies [[figwheel-sidecar "0.5.14"]]
-    :cljsbuild
-    {:builds {:dev
-              {:source-paths ["env/dev" "src"]
-               :figwheel     true
-               :compiler     {:main          {{project-ns}}.app
-                              :output-to     "target/out/{{name}}.js"
-                              :output-dir    "target/out"
-                              :target        :nodejs
-                              :optimizations :none
-                              :pretty-print  true
-                              :source-map    true
-                              :source-map-timestamp false}}}}
-    :figwheel
-    {:http-server-root "public"
-     :nrepl-port 7000
-     :reload-clj-files {:clj true :cljc true}
-     :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-    :source-paths ["env/dev"]
-    :repl-options {:init-ns user}}
+  {:server {:clean-targets ["target"]}
+{{#browser}}
+   :browser {:clean-targets ["public/js/compiled"]}
+   :browser-dev
+   [:browser
+    {:cljsbuild
+     {:builds {:dev
+               {:source-paths ["src/browser"]
+                :figwheel true
+                :compiler {:main {{project-ns}}.app
+                           :asset-path "js/compiled/dev/out"
+                           :output-to "public/js/compiled/app.js"
+                           :output-dir "public/js/compiled/dev/out"
+                           :source-map-timestamp true}}}}
+     :figwheel {:http-server-root "public"
+                :nrepl-port 7001
+                :reload-clj-files {:clj true :cljc true}
+                :server-port 3450
+                :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}]
+{{/browser}}
+   :dev
+   [:server
+    {:npm {:package {:main "target/out/{{name}}.js"
+                     :scripts {:start "node target/out/{{name}}.js"}}}
+     :dependencies [[figwheel-sidecar "0.5.14"]]
+     :cljsbuild
+     {:builds {:dev
+               {:source-paths ["env/dev" "src/server"]
+                :figwheel     true
+                :compiler     {:main          {{project-ns}}.app
+                               :output-to     "target/out/{{name}}.js"
+                               :output-dir    "target/out"
+                               :target        :nodejs
+                               :optimizations :none
+                               :pretty-print  true
+                               :source-map    true
+                               :source-map-timestamp false}}}}
+     :figwheel
+     {:http-server-root "public"
+      :nrepl-port 7000
+      :reload-clj-files {:clj true :cljc true}
+      :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+     :source-paths ["env/dev"]
+     :repl-options {:init-ns user}}]
    :test
    {:cljsbuild
     {:builds
      {:test
-      {:source-paths ["env/test" "src" "test"]
+      {:source-paths ["env/test" "src/server" "test"]
        :compiler     {:main {{project-ns}}.app
                       :output-to     "target/test/{{name}}.js"
                       :target        :nodejs
@@ -65,23 +85,42 @@
     :cljsbuild
     {:builds
      {:release
-      {:source-paths ["env/prod" "src"]
+      {:source-paths ["env/prod" "src/server"]
        :compiler     {:main          {{project-ns}}.app
                       :output-to     "target/release/{{name}}.js"
                       :language-in   :ecmascript5
                       :target        :nodejs
                       :optimizations :simple
-                      :pretty-print  false}}}}}}
+                      :pretty-print  false}}
+{{#browser}}
+      :release-browser
+      {:source-paths ["src/browser"]
+       :compiler {:main {{project-ns}}.app
+                  :asset-path "js/compiled/out"
+                  :output-to "public/js/compiled/app.js"
+                  :output-dir "public/js/compiled/out"
+                  :optimizations :advanced
+                  :pretty-print false
+                  :source-map "public/js/compiled/app.js.map"}}
+{{/browser}}
+      }}}}
   :aliases
   {"build" ["do"
             ["clean"]
             ["npm" "install"]
             ["figwheel" "dev"]]
+{{#browser}}
+   "build-browser" ["do"
+                    ["with-profile" "browser-dev" "figwheel" "dev"]]
+{{/browser}}
    "package" ["do"
               ["clean"]
               ["npm" "install"]
               ["with-profile" "release" "npm" "init" "-y"]
-              ["with-profile" "release" "cljsbuild" "once"]]
+              ["with-profile" "release" "cljsbuild" "once" "release"]
+{{#browser}}
+              ["with-profile" "release" "cljsbuild" "once" "release-browser"]
+{{/browser}}]
    "test" ["do"
            ["npm" "install"]
            ["with-profile" "test" "doo" "node"]]})

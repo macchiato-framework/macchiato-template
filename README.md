@@ -9,8 +9,13 @@ This template creates a skeleton Macchiato based project with a test harness.
 Create a new application project:
 
 ```
-lein new macchiato <name>
+lein new macchiato <name> [profile...]
 ```
+
+### Profiles
+
+- `+browser`
+  - adds support for clojurescript in browser
 
 ## Contributing & Customizing
 

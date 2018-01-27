@@ -78,7 +78,8 @@
                       :optimizations :none
                       :pretty-print  true
                       :source-map    true}}}}
-    :doo {:build "test"}}
+    :doo {:build "test"}
+    :dependencies [[pjstadig/humane-test-output "0.8.3"]]}
    :release
    {:npm {:package {:main "target/release/{{name}}.js"
                     :scripts {:start "node target/release/{{name}}.js"}}}

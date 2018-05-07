@@ -16,7 +16,7 @@
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-doo "0.1.7"]
             [macchiato/lein-npm "0.6.4"]
-            [lein-figwheel "0.5.15"]
+            [lein-figwheel "0.5.16"]
             [lein-cljsbuild "1.1.5"]]
   :npm {:dependencies [[source-map-support "0.4.6"]]
         :write-package-json true}
@@ -47,7 +47,7 @@
    [:server
     {:npm {:package {:main "target/out/{{name}}.js"
                      :scripts {:start "node target/out/{{name}}.js"}}}
-     :dependencies [[figwheel-sidecar "0.5.15"]]
+     :dependencies [[figwheel-sidecar "0.5.16"]]
      :cljsbuild
      {:builds {:dev
                {:source-paths ["env/dev" "src/server"]

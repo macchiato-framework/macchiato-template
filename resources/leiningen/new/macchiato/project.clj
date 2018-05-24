@@ -20,7 +20,7 @@
             [lein-cljsbuild "1.1.5"]]
   :npm {:dependencies [[source-map-support "0.4.6"]]
         :write-package-json true}
-  :source-paths ["src" "target/classes"]
+  :source-paths ["src/server"{{#browser}} "src/browser"{{/browser}} "target/classes"]
   :target-path "target"
   :profiles
   {:server {:clean-targets ["target"]}

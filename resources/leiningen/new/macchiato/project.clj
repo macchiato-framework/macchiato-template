@@ -8,7 +8,7 @@
                  [macchiato/core "0.2.14"]
                  [macchiato/env "0.0.6"]
                  [mount "0.1.15"]
-                 [org.clojure/clojure "1.9.0"]
+                 [org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.439"]
                  ;; needed for JDK 9 compatibility
                  [javax.xml.bind/jaxb-api "2.3.0"]]

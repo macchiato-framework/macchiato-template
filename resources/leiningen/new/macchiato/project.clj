@@ -5,7 +5,7 @@
                  [com.cemerick/piggieback "0.2.2"]
                  [com.taoensso/timbre "4.10.0"]
                  [macchiato/hiccups "0.4.1"]
-                 [macchiato/core "0.2.15"]
+                 [macchiato/core "0.2.16"]
                  [macchiato/env "0.0.6"]
                  [mount "0.1.15"]
                  [org.clojure/clojure "1.10.0"]

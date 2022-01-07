@@ -23,7 +23,7 @@
              [".dockerignore" (render "dockerignore" data)]
              ["Dockerfile" (render "Dockerfile" data)]
              ["project.clj" (render "project.clj" data)]
-             ["config.edn" (renger "config.edn" data)]
+             ["config.edn" (render "config.edn" data)]
              ;; sources
              ["env/dev/user.clj" (render "env/dev/user.clj" data)]
              ["env/dev/{{sanitized}}/app.cljs" (render "env/dev/app.cljs" data)]
